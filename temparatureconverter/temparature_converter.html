@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temparature Converter</title>
+    <style>
+        body{
+            padding: 50px 100px;
+            background-color: navy;
+        }
+       h1{
+          text-align: center;
+          color: orangered;
+       }
+
+        #container{
+            text-align: center;
+            background-color: #99ff99;
+            align-items: center;
+            margin-left: 230px;
+            width: 50%;
+            padding: 30px;
+            box-sizing: 20px;
+            /* box-shadow: 5px 10px 18px #57e2d9; */
+        }
+        #in1{
+           display: inline-block;
+            
+        }
+        #in2{
+            display: inline-block;
+        }
+        .inp{
+            padding: 5px 10px;
+            margin: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            /* width: 250px; */
+            text-align: center;
+        }
+        p{
+            font-size: 22px;
+            font-style: italic;
+        }
+        .cel{
+             color: rgba(161, 15, 235, 0.955);
+        }
+        .fer{
+             color: rgba(255, 0, 106, 0.955);
+        }
+    </style>
+</head>
+<body>
+    <h1>Temparature Coverter</h1>
+    <div id="container">
+    <div id="in1">
+        <p class="cel">Celcious</p>
+        <input type="number" value="0" id="cel" class="inp">
+    </div>
+    <div id="in2">
+        <p class="fer">Farenhite</p>
+        <input type="number" value="32" id="fer" class="inp">
+    </div>
+    <script>
+        let cel=document.getElementById("cel");
+        let fer=document.getElementById("fer");
+
+        cel.addEventListener('input',function(){
+            let c= this.value;
+            let f=(c * 9/5) + 32;
+            if(!Number.isInteger(f)){
+                 f=f.toFixed(4);
+            }
+            fer.value=f;
+        });
+        fer.addEventListener('input',function(){
+            let f= this.value;
+            let c=(f-32)*5/9;
+            if(!Number.isInteger(c)){
+                 c=c.toFixed(4);
+            }
+            cel.value=c;
+        });
+    </script>
+</body>
+</html>
